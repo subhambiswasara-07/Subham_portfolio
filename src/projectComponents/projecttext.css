@@ -1,0 +1,258 @@
+.project-text {
+  padding-inline: clamp(20px, 2vw, 2.5vw);
+  align-content: start;
+  padding: 150px 50px;
+  padding-bottom: 5px;
+  text-align: start;
+  min-height: 75vh;
+}
+.project-one {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-end;
+}
+.project-text h1 {
+  font-size: 11vw;
+  font-weight: 700;
+  line-height: 19vh;
+}
+
+.project-one span {
+  color: red;
+}
+
+.project-one p {
+  font-size: 3vw;
+  width: 70%;
+  text-align: center;
+  color: wheat;
+}
+
+.project-one a {
+  margin-top: 25px;
+  font-size: 25px;
+  /* color: red; */
+}
+
+.project-one a i {
+  font-size: 15px;
+}
+
+.project-container {
+  height: auto;
+
+  width: 100%;
+  max-width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  column-gap: 10px;
+  padding-inline: 50px;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.project-left {
+  max-height: 60vh;
+  position: relative;
+}
+.project-right {
+  max-height: 60vh;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.73);
+  text-align: center;
+  align-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.overlay:hover {
+  opacity: 1;
+}
+.over-btn {
+  height: 50px;
+  width: 130px;
+  font-size: 25px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.project-left img,
+.project-right img {
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  pointer-events: auto;
+  object-fit: cover;
+  /* object-fit: cover; */
+}
+
+/* new */
+
+.project-container {
+  width: 100%;
+  max-width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  column-gap: 10px;
+  row-gap: 15px;
+
+  padding-inline: 50px;
+  padding-top: 20px;
+
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+.project-left,
+.project-right {
+  height: 150px;
+  min-height: 0;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.project-left img,
+.project-right img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.73);
+
+  text-align: center;
+  align-content: center;
+
+  opacity: 0;
+
+  transition: opacity 0.25s ease-in-out;
+}
+
+.overlay:hover {
+  opacity: 1;
+}
+
+.over-btn {
+  height: 50px;
+  width: 130px;
+
+  font-size: 25px;
+
+  border-radius: 10px;
+  outline: none;
+  border: none;
+
+  cursor: pointer;
+}
+
+.project-text {
+  width: 100%;
+  min-height: clamp(500px, 75vh, 800px);
+  padding: clamp(110px, 10vw, 150px) clamp(16px, 5vw, 70px) 30px;
+}
+.project-one {
+  gap: clamp(14px, 2vw, 24px);
+}
+.project-text h1 {
+  font-size: clamp(3.2rem, 11vw, 10.5rem);
+  line-height: 0.9;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+.project-one p {
+  font-size: clamp(1rem, 3vw, 2.6rem);
+  width: min(70%, 900px);
+  line-height: 1.25;
+}
+.project-one a {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 10px;
+}
+.project-container {
+  width: 100%;
+  max-width: none;
+  padding: 20px clamp(12px, 4vw, 50px) 30px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.project-left,
+.project-right {
+  height: clamp(180px, 22vw, 320px);
+  max-height: none;
+}
+.over-btn {
+  width: clamp(100px, 9vw, 130px);
+  height: clamp(42px, 4vw, 50px);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+@media (max-width: 768px) {
+  .project-text {
+    min-height: 0;
+    padding: 85px 14px 18px;
+  }
+  .project-text h1 {
+    font-size: clamp(3rem, 13vw, 5.5rem);
+  }
+  .project-one p {
+    width: 95%;
+    font-size: clamp(1rem, 4.5vw, 1.5rem);
+  }
+  .project-container {
+    grid-template-columns: 1fr;
+    padding-inline: 14px;
+    gap: 14px;
+  }
+  .project-left,
+  .project-right {
+    height: auto;
+    aspect-ratio: 16/10;
+  }
+  
+}
+@media (max-width: 480px) {
+  .project-text {
+    min-height: 0;
+    padding-top: 78px;
+    padding-bottom: 14px;
+  }
+  .project-text h1 {
+    font-size: clamp(2.65rem, 14vw, 4rem);
+  }
+  .project-container {
+    padding-inline: 12px;
+  }
+  .project-left,
+  .project-right {
+    aspect-ratio: 5/3;
+  }
+}

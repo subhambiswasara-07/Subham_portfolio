@@ -1,0 +1,140 @@
+.clg {
+  height: 70vh;
+  width: 100%;
+  padding: 1vw 5vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 70px;
+}
+
+.about-clg {
+  height: 100%;
+  width: 55%;
+  align-content: center;
+}
+.about-clg h1 {
+  font-size: 4.5vw;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  width: fit-content;
+  border-bottom: 3px dashed red;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.about-clg span {
+  color: red;
+}
+
+.about-clg p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.35vw;
+  line-height: 2vw;
+  color: rgb(205, 202, 202);
+  padding-left: 5px;
+}
+
+.line {
+  height: 80%;
+  width: 5px;
+  background: red;
+}
+
+.clg-icons {
+  height: 100%;
+  align-content: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  width: 40%;
+}
+
+.clg-icons ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.8vw;
+}
+
+.clg ul li {
+  margin-bottom: 1.05vw;
+  color: rgb(167, 166, 166);
+}
+
+.clg ul li i {
+  color: red;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.clg ul li:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.clg {
+  width: 100%;
+  min-height: 70vh;
+  height: auto;
+  padding: 60px clamp(18px, 5vw, 80px);
+  gap: clamp(25px, 5vw, 70px);
+}
+.about-clg {
+  height: auto;
+  width: 55%;
+  min-width: 0;
+}
+.about-clg h1 {
+  font-size: clamp(2.3rem, 4.5vw, 4.5rem);
+  line-height: 1.05;
+}
+.about-clg p {
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.55;
+  padding-left: 0;
+}
+.line {
+  height: 220px;
+  flex-shrink: 0;
+}
+.clg-icons {
+  height: auto;
+  width: 40%;
+  gap: 25px;
+}
+.clg-icons ul {
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+}
+@media (max-width: 768px) {
+  .clg {
+    min-height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 35px 14px 25px;
+    gap: 18px;
+  }
+  .about-clg,
+  .clg-icons {
+    width: 100%;
+  }
+  .line {
+    height: 3px;
+    width: 100%;
+    display: none;
+  }
+  .clg-icons {
+    justify-content: flex-start;
+  }
+  .clg-icons ul {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .clg {
+    padding: 28px 12px 20px;
+    gap: 14px;
+  }
+  .clg ul li {
+    margin-bottom: 9px;
+  }
+}
