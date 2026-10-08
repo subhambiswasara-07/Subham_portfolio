@@ -208,10 +208,10 @@
     gap: 10px;
   }
   .card-text h2 {
-    font-size: clamp(1.1rem, 5.5vw, 1.1rem);
+    font-size: clamp(1rem, 5.5vw, 1rem);
   }
   .card-text p {
-    font-size: clamp(0.57rem, 2.8vw, 0.57rem);
+    font-size: clamp(0.5rem, 2.8vw, 0.5rem);
     line-height: 1.2;
     margin-bottom:0px;
   }
@@ -237,10 +237,10 @@
     font-size: 1rem;
   }
   .card-text p {
-    font-size: 0.5rem;
+    font-size: 0.45rem;
   }
   .card a {
-    font-size: 0.50rem;
+    font-size: 0.4rem;
     text-align: center;
     margin-top: 5px;
     align-content: center;
