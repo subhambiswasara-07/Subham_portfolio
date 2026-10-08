@@ -294,7 +294,7 @@
 }
 @media (max-width: 600px) {
   .contact {
-    padding: 38px 14px;
+    padding: 8px 14px;
   }
   .heading h1 {
     font-size: clamp(2.35rem, 10vw, 3.5rem);
