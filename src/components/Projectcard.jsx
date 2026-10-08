@@ -25,7 +25,7 @@ const Projectcard = () => {
         text: "Hotelhub",
         about:"Hotel showcasing platform",
         Url: "https://hotelhub-ukw1.onrender.com/",
-        desc: "Hotel Hub is a frontend hotel booking concept designed to provide a smooth and visually appealing accommodation browsing experience. It includes responsive layouts, modern UI and interactive sections for exploring hotels, rooms, and essential booking information.",
+        desc: "Hotel Hub is a frontend hotel booking concept designed to provide a smooth and visually appealing accommodation browsing experience. It includes responsive layouts, modern UI and interactive sections for exploring hotels, rooms, and essential booking.",
       },
     ];
 
