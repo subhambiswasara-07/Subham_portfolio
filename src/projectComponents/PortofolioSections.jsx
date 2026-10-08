@@ -1,8 +1,13 @@
-import React from "react";
+
+import React, { useEffect, useRef } from "react";
 import "./portofoliosection.css";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { delay } from "motion";
 
-// SVG Icon Helpers for Section 3 Cards
+gsap.registerPlugin(ScrollTrigger);
+
 const LightbulbIcon = () => (
   <svg
     width="24"
@@ -144,9 +149,165 @@ const learningsData = [
 ];
 
 const PortfolioSections = () => {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const ctx = gsap.context(() => {
+        // Section 1: Process
+        const processTl = gsap.timeline({
+          scrollTrigger: {
+            
+            trigger: ".process-header",
+            start: "top 75%",
+            toggleActions: "play none none none",
+          },
+          onComplete: () => {
+            gsap.set([".process-header", ".process-card", ".process-arrow"], {
+              clearProps: "all",
+            });
+          },
+        });
+
+        processTl
+          .fromTo(
+            ".process-header",
+            { opacity: 0, y: 25 },
+            { opacity: 1, y: 0, duration: 0.6,
+              delay:0.5, ease: "power2.out" },
+          )
+          .fromTo(
+            ".process-card",
+            { opacity: 0, y: 30 },
+            {
+              opacity: 1,
+              y: 0,
+              stagger: 0.35,
+              duration: 0.5,
+              ease: "power2.out",
+            },
+            "-=0.3",
+          )
+          .fromTo(
+            ".process-arrow",
+            { opacity: 0, scale: 0.5 },
+            {
+              opacity: 1,
+              scale: 1,
+              stagger: 0.35,
+              duration: 0.5,
+              ease: "back.out(1.5)",
+            },
+            "-=0.5",
+          );
+
+        // Section 2: Timeline
+        const timelineTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".timeline-heading",
+            start: "top 75%",
+            toggleActions: "play none none none",
+          },
+          onComplete: () => {
+            gsap.set([".timeline-heading", ".timeline-item"], {
+              clearProps: "all",
+            });
+          },
+        });
+
+        timelineTl
+          .fromTo(
+            ".timeline-heading",
+            { opacity: 0, y: 25 },
+            { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+          )
+          .fromTo(
+            ".timeline-item",
+            { opacity: 0, y: 35 },
+            {
+              opacity: 1,
+              delay:1,
+              y: 0,
+              stagger: 0.2,
+              duration: 0.6,
+              ease: "power2.out",
+            },
+            "-=0.3",
+          );
+
+        // Section 3: Learnings
+        const learningsTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".learnings-heading",
+            start: "top 75%",
+            toggleActions: "play none none none",
+          },
+          onComplete: () => {
+            gsap.set([".learnings-heading", ".learning-card"], {
+              clearProps: "all",
+            });
+          },
+        });
+
+        learningsTl
+          .fromTo(
+            ".learnings-heading",
+            { opacity: 0, y: 25 },
+          
+            { opacity: 1, y: 0, duration: 0.6,ease: "power2.out" },
+          )
+          .fromTo(
+            ".learning-card",
+            { opacity: 0, scale: 0.9, y: 20 },
+            {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              stagger: 0.12,
+              duration: 0.5,
+              ease: "back.out(1.2)",
+            },
+            "-=0.3",
+          );
+
+        // Section 4: CTA
+        const ctaTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".cta-section",
+            start: "top 95%",
+            toggleActions: "play none none none",
+          },
+          onComplete: () => {
+            gsap.set([".cta-title", ".cta-button"], {
+              clearProps: "all",
+            });
+          },
+        });
+
+        ctaTl
+          .fromTo(
+            ".cta-title",
+            { opacity: 0, y: 25 },
+            { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" ,delay:0.5},
+          
+          )
+          .fromTo(
+            ".cta-button",
+            { opacity: 0, scale: 0.85 },
+            { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.5)" }
+          );
+      }, containerRef);
+
+      ScrollTrigger.refresh();
+
+      return () => ctx.revert();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="portfolio-wrapper">
-      {/* SECTION 1: MY PROCESS */}
+    <div ref={containerRef} className="portfolio-wrapper">
       <section className="section-block">
         <div className="process-header">
           <h2 className="section-title">
@@ -176,7 +337,6 @@ const PortfolioSections = () => {
         </div>
       </section>
 
-      {/* SECTION 2: FROM LEARNING TO BUILDING */}
       <section className="section-block">
         <h2 className="section-title timeline-heading">
           From Learning to <span className="highlight">Building</span>
@@ -193,7 +353,6 @@ const PortfolioSections = () => {
         </div>
       </section>
 
-      {/* SECTION 3: WHAT I'VE LEARNED (CARDS ONLY) */}
       <section className="section-block">
         <h2 className="section-title learnings-heading">
           Every Project Taught Me{" "}
@@ -213,7 +372,6 @@ const PortfolioSections = () => {
         </div>
       </section>
 
-      {/* SECTION 4: CALL TO ACTION */}
       <section className="section-block cta-section">
         <h2 className="cta-title">
           I'm always building <br />
@@ -223,7 +381,6 @@ const PortfolioSections = () => {
         <Link
           to="/"
           onClick={() => {
-
             setTimeout(() => {
               document.getElementById("contact")?.scrollIntoView({
                 behavior: "smooth",

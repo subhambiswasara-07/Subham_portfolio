@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 import hero from "../assets/laptop.png"
 import { motion } from 'motion/react';
 
-
 const HomeTxt = () => {
-
-
 
   return (
     <div className="home-txt">
@@ -53,6 +50,3 @@ const HomeTxt = () => {
 }
 
 export default HomeTxt
-
-
-  

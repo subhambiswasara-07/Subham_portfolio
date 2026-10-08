@@ -4,9 +4,7 @@ import Education from "../components/Education";
 import Transform from "../components/Transform";
 import Contact from "../components/Contact";
 
-// import Build from '../components/Build'
-// import Techstack from "../components/Techstack";
-// import Expert from '../components/Expert'
+
 const Home = () => {
 
 

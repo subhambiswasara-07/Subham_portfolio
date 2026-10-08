@@ -241,7 +241,6 @@
   }
 }
 
-/* Requested mobile-only adjustment: academic text before education image + tighter spacing */
 @media (max-width: 768px) {
   .education {
     margin-bottom: 8px;

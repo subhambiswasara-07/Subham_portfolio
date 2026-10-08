@@ -1,4 +1,5 @@
-import React from 'react'
+
+import React, { useEffect, useRef } from "react";
 import "./hobbies.css";
 import anime from "../assets/anime.png";
 import movies from "../assets/movies.png";
@@ -12,8 +13,13 @@ import sleeping from "../assets/sleeping.png";
 import song from "../assets/songs.png";
 import standup from "../assets/standup.png";
 import travel from "../assets/travel.png";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hobbies = () => {
+  const sectionRef = useRef(null);
 
   const things = [
     { id: 1, name: "Anime", image: anime },
@@ -30,27 +36,67 @@ const Hobbies = () => {
     { id: 12, name: "Travel", image: travel },
   ];
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+          onComplete: () => {
+            gsap.set([".hobbies h1", ".hobbies p", ".all-hobbies img"], {
+              clearProps: "all",
+            });
+          },
+        });
+
+        tl.fromTo(
+          ".hobbies h1, .hobbies p",
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 0.6, stagger: 0.2, ease: "power2.out" },
+        ).fromTo(
+          ".all-hobbies img",
+          { opacity: 0, scale: 0.7, y: 20 },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.4,
+            stagger: 0.05,
+            ease: "back.out(1.5)",
+          },
+          "-=0.2",
+        );
+      }, sectionRef);
+
+      ScrollTrigger.refresh();
+
+      return () => ctx.revert();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <div className="hobbies">
+    <div ref={sectionRef} className="hobbies">
       <h1>
         Things I Love <span>Doing</span>
       </h1>
       <p>
-        when i am not coding i would be following my hobbies cause i beleive
-        life is not just about some boring studies and stuff. here are the some
-        of things that makes me really happy motivatated and cheerful and i
-        really enjoy doing this things{" "}
+        When I am not coding I would be following my hobbies cause I believe
+        life is not just about some boring studies and stuff. Here are some of
+        the things that make me really happy, motivated, and cheerful, and I
+        really enjoy doing these things.
       </p>
       <div className="all-hobbies">
         {things.map((thing) => (
-          
-            <img src={thing.image} alt={thing.name} key={thing.id} />
-          
+          <img src={thing.image} alt={thing.name} key={thing.id} />
         ))}
       </div>
     </div>
   );
-}
+};
 
-export default Hobbies
+export default Hobbies;

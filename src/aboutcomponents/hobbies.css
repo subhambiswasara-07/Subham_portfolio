@@ -88,7 +88,6 @@
 }
 
 
-/* Requested adjustment: keep hobbies fitting on screen; no horizontal scrolling */
 @media (max-width: 768px) {
   .all-hobbies {
     display: grid;

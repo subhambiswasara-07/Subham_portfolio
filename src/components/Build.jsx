@@ -1,44 +1,33 @@
-import { useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionHeading from "./SectionHeading";
-import './build.css'
+import "./build.css";
 import Projectcard from "./Projectcard";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Build = () => {
   const sectionRef = useRef(null);
-  const boxRef = useRef(null);
 
-  // useEffect(() => {
-  //   const ctx = gsap.context(() => {
-  //     gsap.to(boxRef.current, {
-  //       width: "100vw",
-  //       height: "100vh",
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".growing-box", {
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        ease: "power2.out",
+      });
+    }, sectionRef);
 
-  //       scrollTrigger: {
-  //         trigger: sectionRef.current,
-  //         start: "top top",
-  //         end: "+=1500",
-  //         scrub: true,
-  //         pin: true,
-  //       },
-  //     });
-  //   }, sectionRef);
-
-  //   return () => ctx.revert();
-  // }, []);
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section ref={sectionRef} className="second-section">
-      <SectionHeading>What do i built</SectionHeading>
-
-      {/* Growing element */}
-      <div ref={boxRef} className="growing-box">
-
-<Projectcard/>        
-
+      <SectionHeading>What do I build</SectionHeading>
+      <div className="growing-box">
+        <Projectcard />
       </div>
     </section>
   );

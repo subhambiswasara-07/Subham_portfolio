@@ -92,7 +92,6 @@
 }
 @media(max-width:480px){.about-me{padding:45px 12px 20px;gap:14px}.about-text p{font-size:.94rem}.about-text li{font-size:.9rem}.about-img img{max-height:32vh}}
 
-/* Requested mobile-only adjustment: text before image + tighter section spacing */
 @media (max-width: 768px){
   .about-me{margin-bottom:8px;padding-top:55px;padding-bottom:25px;gap:18px}
   .about-text{order:1}

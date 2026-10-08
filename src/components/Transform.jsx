@@ -8,10 +8,8 @@ const Transform = () => {
 
   return (
     <div className="transform-container">
-      {/* Navigation Wrapper */}
       <nav
         className="transform-nav "
-        // style={{ display: "flex", gap: "24px", marginBottom: "30px" }}
       >
         <div className="nav-btns">
           <button
@@ -24,7 +22,6 @@ const Transform = () => {
               transition: "all 0.2s ease",
             }}
           >
-            {/* Wrapping text explicitly shields it from browser string mutations */}
             <span>Build</span>
           </button>
 
@@ -57,7 +54,6 @@ const Transform = () => {
         </div>
       </nav>
 
-      {/* Content Viewport with explicit key to prevent tree mismatch collisions */}
       <main className="transform-content" key={activeTab}>
         {activeTab === "build" && <Build />}
         {activeTab === "techstack" && <Techstack />}

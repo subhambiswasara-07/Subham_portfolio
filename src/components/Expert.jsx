@@ -1,10 +1,7 @@
-
-
 import React from "react";
 import "./expert.css";
 import SectionHeading from "./SectionHeading";
 import stand from '../assets/standing.png'
-
 
 const skills = [
   {
@@ -60,17 +57,14 @@ function Expert() {
       <SectionHeading>My Expertise</SectionHeading>
 
       <div className="expertise-grid">
-        {/* LEFT */}
         <div className="skills-column left-column">
           {skills.slice(0, 3).map((skill) => (
             <SkillCard key={skill.number} skill={skill} />
           ))}
         </div>
 
-        {/* CENTER */}
         <div className="character-container">
           <div className="character-glow"></div>
-
 
           <img
             src={stand}
@@ -79,7 +73,6 @@ function Expert() {
           />
         </div>
 
-        {/* RIGHT */}
         <div className="skills-column right-column">
           {skills.slice(3, 6).map((skill) => (
             <SkillCard key={skill.number} skill={skill} />

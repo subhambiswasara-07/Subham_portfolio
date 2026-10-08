@@ -116,7 +116,6 @@ const Techstack = () => {
     },
   ];
 
-
   return (
     <div className="tech">
       <div>
@@ -133,3 +132,6 @@ const Techstack = () => {
 }
 
 export default Techstack
+
+
+

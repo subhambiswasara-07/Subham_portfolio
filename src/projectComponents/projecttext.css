@@ -60,10 +60,16 @@
 .project-left {
   max-height: 60vh;
   position: relative;
+  border: 3px solid rgb(255, 0, 0);
+  border-radius: 20px;
+
 }
 .project-right {
   max-height: 60vh;
   position: relative;
+  border: 3px solid red;
+  border-radius: 20px;
+  
 }
 
 .overlay {
@@ -99,6 +105,7 @@
   opacity: 1;
   pointer-events: auto;
   object-fit: cover;
+    filter: brightness(65%);
   /* object-fit: cover; */
 }
 
@@ -223,6 +230,8 @@
   .project-text h1 {
     font-size: clamp(3rem, 13vw, 5.5rem);
   }
+
+
   .project-one p {
     width: 95%;
     font-size: clamp(1rem, 4.5vw, 1.5rem);
@@ -254,5 +263,9 @@
   .project-left,
   .project-right {
     aspect-ratio: 5/3;
+  }
+
+    .overlay{
+    display: none;
   }
 }
