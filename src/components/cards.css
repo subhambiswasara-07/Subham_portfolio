@@ -213,11 +213,11 @@
   .card-text p {
     font-size: clamp(0.5rem, 2.8vw, 0.5rem);
     line-height: 1.2;
-    margin-bottom:0px;
+    margin-bottom:5px;
   }
   .card a {
     font-size: 0.52rem;
-    margin-top: 0px;
+    margin-top: 5px;
     /* align-content: center; */
     padding: 6px 8px;
   }
